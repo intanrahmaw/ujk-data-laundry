@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(135deg, #0b2a4a, #1e3c72, #2a5298);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card {
+    width: 350px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.edit-wrapper,
+.data-wrapper,
+.form-wrapper {
+    width: 100%;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+/* tombol navy */
+.btn-navy {
+    background-color: #0b2a4a;
+    border-color: #0b2a4a;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-navy:hover {
+    background-color: #083a66;
+    border-color: #083a66;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 31, 63, 0.25);
+}
+
+.btn-navy:active {
+    background-color: #062b4a;
+    border-color: #062b4a;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn-navy:focus {
+    box-shadow: 0 0 0 0.2rem rgba(11, 42, 74, 0.3);
+    color: #ffffff;
+}
