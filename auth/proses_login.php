@@ -21,6 +21,6 @@ if (!password_verify($password, $user['password'])) {
 }
 
 $_SESSION['user'] = $user;
-header("Location: ../laundry/index.php");
+header("Location: ../dashboard.php");
 exit;
 ?>

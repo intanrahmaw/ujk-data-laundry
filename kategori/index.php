@@ -2,18 +2,13 @@
 include '../config/auth.php';
 include '../config/koneksi.php';
 
-$data = mysqli_query($conn, "
-SELECT laundry.*, kategori_laundry.nama_kategori 
-FROM laundry 
-LEFT JOIN kategori_laundry 
-ON laundry.kategori_id = kategori_laundry.id
-");
+$data = mysqli_query($conn, "SELECT * FROM kategori_laundry");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Manajemen Data Laundry</title>
+    <title>Manajemen Kategori Laundry</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -26,7 +21,7 @@ ON laundry.kategori_id = kategori_laundry.id
         <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="mb-0">Data Laundry</h3>
+                <h3 class="mb-0">Data Kategori Laundry</h3>
 
                 <div class="d-flex gap-2">
                     <a href="../dashboard.php" class="btn btn-primary btn-sm">Kembali</a>
@@ -34,7 +29,7 @@ ON laundry.kategori_id = kategori_laundry.id
                 </div>
             </div>
 
-            <a href="tambah.php" class="btn btn-navy mb-3">+ Tambah Data</a>
+            <a href="tambah.php" class="btn btn-navy mb-3">+ Tambah Kategori</a>
 
             <?php if (isset($_SESSION['success'])): ?>
                 <div class="alert alert-success">
@@ -47,20 +42,16 @@ ON laundry.kategori_id = kategori_laundry.id
 
                 <tr>
                     <th>No</th>
-                    <th>Nama Pelanggan</th>
-                    <th>Kategori</th>
-                    <th>Berat</th>
-                    <th>Total</th>
+                    <th>Nama Kategori</th>
+                    <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
 
-                <?php $no=1; while($row = mysqli_fetch_assoc($data)) { ?>
+                <?php $no = 1; while($row = mysqli_fetch_assoc($data)) { ?>
                 <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row['nama_pelanggan'] ?></td>
                     <td><?= $row['nama_kategori'] ?></td>
-                    <td><?= $row['berat'] ?> kg</td>
-                    <td>Rp <?= number_format($row['total_harga']) ?></td>
+                    <td><?= $row['deskripsi'] ?></td>
                     <td>
                         <a href="edit.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
                         <a href="hapus.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin menghapus data ini?')">Hapus</a>

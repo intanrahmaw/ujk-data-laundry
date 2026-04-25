@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['user'])) {
-    header("Location: ../laundry/index.php");
+    header("Location: ../dashboard.php");
     exit;
 }
 ?>
@@ -24,7 +24,6 @@ if (isset($_SESSION['user'])) {
         <div class="card-body">
 
             <h4 class="text-center fw-bold mb-1">Sistem Manajemen Data Laundry</h4>
-            <p class="text-center text-muted mb-4">Silakan login untuk melanjutkan</p>
 
             <?php if (isset($_SESSION['error'])): ?>
                 <div class="alert alert-danger text-center">
